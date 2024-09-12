@@ -50,9 +50,9 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Fork failed");
         return 1;
     }
-    else if (pid == 0) {
-        
-        calculate_pi_formatted(pi_formatted, total_digits);
+    else if (pid == 0) 
+    {    
+        calculate_pi_formatted(pi_formatted, ndigits);
         write(fd[1], pi_formatted, total_digits);
     }
     else {

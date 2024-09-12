@@ -33,7 +33,7 @@ jobs:
         setup-command: make
         command: "./posix_assignment 6"
         input: ''
-        expected-output: '3.141592'
+        expected-output: '3.141593'
         comparison-method: exact
         timeout: 10
         max-score: 1
@@ -45,7 +45,7 @@ jobs:
         setup-command: make
         command: "./posix_assignment 20"
         input: ''
-        expected-output: '3.14159265358979311599'
+        expected-output: '3.14159265358979311600'
         comparison-method: exact
         timeout: 10
         max-score: 1

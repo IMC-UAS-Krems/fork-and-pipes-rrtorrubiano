@@ -25,9 +25,36 @@ jobs:
         comparison-method: exact
         timeout: 10
         max-score: 1
+    - name: Test 2
+      id: test-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Test 2
+        setup-command: make
+        command: "./posix_assignment 6"
+        input: ''
+        expected-output: '3.141593'
+        comparison-method: exact
+        timeout: 10
+        max-score: 1
+    - name: Test 3
+      id: test-3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Test 3
+        setup-command: make
+        command: "./posix_assignment 20"
+        input: ''
+        expected-output: '3.14159265358979311600'
+        comparison-method: exact
+        timeout: 10
+        max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-1_RESULTS: "${{steps.test-1.outputs.result}}"
+        TEST-2_RESULTS: "${{steps.test-2.outputs.result}}"
+        TEST-3_RESULTS: "${{steps.test-3.outputs.result}}"
       with:
-        runners: test-1
+        runners: test-1,test-2,test-3
+

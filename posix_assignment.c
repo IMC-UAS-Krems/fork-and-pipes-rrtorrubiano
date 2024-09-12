@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    int total_digits = ndigits + 2;
     pid_t pid;
 
     int fd[2];
@@ -50,14 +51,14 @@ int main(int argc, char *argv[])
         return 1;
     }
     else if (pid == 0) {
-        int total_digits = ndigits + 2;
+        
         calculate_pi_formatted(pi_formatted, total_digits);
         write(fd[1], pi_formatted, total_digits);
     }
     else {
         wait(NULL);
         char response[256];
-        read(fd[0], response, 256);
+        read(fd[0], response, total_digits);
         printf("%s\n", response);
     }
 
